@@ -1,28 +1,22 @@
 //To check if the given string contain all (a-z) & (A-Z)
 #include <iostream>
+#include<string>
 using namespace std;
 
 int main() {
-    char str[1000001];
-    cin >> str;
+    string str;
+    getline(cin, str);
 
     int lower = 0, upper = 0;
+for(char ch : str) {
+if (ch >= 'a' && ch <= 'z')
+    lower |= (1 << (ch - 'a'));
+else if (ch >= 'A' && ch <= 'Z')
+    upper != (1 << (ch - 'A'));
+}
 
-    for (int i = 0; str[i]; i++) {
-        char ch = str[i];
+cout << (lower == (a << 26) - 1 &&
+    upper == (1 << 26) - 1) ? "Yes" : "No");
 
-        if (ch >= 'a' && ch <= 'z')
-            lower |= (1 << (ch - 'a'));
-
-        else if (ch >= 'A' && ch <= 'Z')
-            upper |= (1 << (ch - 'A'));
-    }
-
-    if (lower == (1 << 26) - 1 &&
-        upper == (1 << 26) - 1)
-        cout << "Yes";
-    else
-        cout << "No";
-
-    return 0;
+return 0;
 }
